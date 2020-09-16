@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   get '/about', to: 'about#show'
 
+  resource :user, only: [:new, :create]
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
