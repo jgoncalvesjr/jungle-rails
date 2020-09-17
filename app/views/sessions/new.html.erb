@@ -2,7 +2,14 @@
   <div class="col-sm-6 col-sm-offset-1">
     <h1>Login</h1>
     <%= form_tag '/login' do %>
-      
+
+      <% if notice %>
+        <div class="alert alert-danger">
+          <strong>Could not log in:</strong>
+          <p> <%= notice %> </p>
+        </div>
+      <% end %>
+
       <div class="form-group">
         <%= label_tag :email, 'Email:'%>
         <%= text_field_tag :email, '', class: 'form-control'%>
