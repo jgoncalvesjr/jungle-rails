@@ -5,16 +5,16 @@ RSpec.describe Product, type: :model do
 
     before :all do
       @category = Category.new(
-        :name => 'Vehicles'
+        name: 'Vehicles'
       )
     end
 
     before :each do
       @product = Product.new(
-        :name => 'Cyber old gen polygon electric car',
-        :price_cents => 34999999,
-        :quantity => 5,
-        :category => @category
+        name: 'Cyber old gen polygon electric car',
+        price_cents: 34999999,
+        quantity: 5,
+        category: @category
       )
     end
 
