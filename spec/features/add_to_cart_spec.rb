@@ -16,28 +16,27 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  scenario "They visit a product detail from the home page" do
+  scenario "They add a product to the cart, and cart is added by one" do
     # ACT
     visit root_path
 
     # DEBUG
-    save_screenshot("home_page_2.png")
+    save_screenshot("home_page_3.png")
 
     # VERIFY
     expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_text 'My Cart (0)'
 
     #ACT 
     within first('article.product') do
-      click_link 'Details »'
+      click_button 'Add'
     end
-    find('section.products-show')
-
-    # VERIFY
-    expect(page).to have_css '.product-detail', count: 1
 
     # DEBUG
-    sleep 0.1
-    save_screenshot("product_detail.png")
+    save_screenshot("new_cart.png")
+
+    # VERIFY
+    expect(page).to have_text 'My Cart (1)'
 
   end
 end
