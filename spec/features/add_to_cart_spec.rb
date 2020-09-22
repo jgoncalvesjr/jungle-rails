@@ -25,7 +25,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
 
     # VERIFY
     expect(page).to have_css 'article.product', count: 10
-    expect(page).to have_text 'My Cart (0)'
+    expect(page.find('nav')).to have_text 'My Cart (0)'
 
     #ACT 
     within first('article.product') do
@@ -36,7 +36,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     save_screenshot("new_cart.png")
 
     # VERIFY
-    expect(page).to have_text 'My Cart (1)'
+    expect(page.find('nav')).to have_text 'My Cart (1)'
 
   end
 end
