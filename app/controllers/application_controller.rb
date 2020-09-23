@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :cart_subtotal_cents
 
+  def empty_cart?
+    enhanced_cart.count == 0
+  end
+  helper_method :empty_cart?
 
   def update_cart(new_cart)
     cookies[:cart] = {
